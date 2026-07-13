@@ -1,17 +1,33 @@
 pipeline {
     agent any
+
+    tools {
+        nodejs "NodeJS"
+    }
+
     stages {
         stage('Checkout') {
-            steps { checkout scm }
+            steps {
+                checkout scm
+            }
         }
+
         stage('Install Dependencies') {
-            steps { sh 'npm install' }
+            steps {
+                sh 'npm install'
+            }
         }
+
         stage('Run Tests') {
-            steps { sh 'npm test' }
+            steps {
+                sh 'npm test'
+            }
         }
+
         stage('Build') {
-            steps { sh 'echo "Build successful!"' }
+            steps {
+                sh 'echo "Build successful!"'
+            }
         }
     }
 }
