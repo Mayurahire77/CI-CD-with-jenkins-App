@@ -1,17 +1,17 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building the application...'
-            }
+        stage('Checkout') {
+            steps { checkout scm }
         }
-
-        stage('Test') {
-            steps {
-                echo 'Testing the application...'
-            }
+        stage('Install Dependencies') {
+            steps { sh 'npm install' }
+        }
+        stage('Run Tests') {
+            steps { sh 'npm test' }
+        }
+        stage('Build') {
+            steps { sh 'echo "Build successful!"' }
         }
     }
 }
