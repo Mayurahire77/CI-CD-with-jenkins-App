@@ -27,7 +27,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "Build successful!"'
-            }
+            } 
         }
     }
 }
